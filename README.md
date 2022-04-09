@@ -22,7 +22,13 @@ sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 8/g' /etc/pacman.conf
 
 pacman -Sy --noconfirm git proxychains
 
-git clone https://github.com/hbsea/archinstallscript.git
+sed -i '$d' /etc/proxychains.conf
+
+sed -i '$d' /etc/proxychains.conf
+
+sed -i '$ a socks5 192.168.110.111 1082' /etc/proxychains.conf
+
+proxychains git clone https://github.com/hbsea/archinstallscript.git
 
 cd archinstallscript
 
